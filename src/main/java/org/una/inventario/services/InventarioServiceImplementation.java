@@ -10,6 +10,8 @@ import org.una.inventario.repositories.IInventarioRepository;
 import org.una.inventario.utils.MapperUtils;
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.Executors;
 
 @Service
 public class InventarioServiceImplementation implements IInventarioService{
@@ -63,4 +65,18 @@ public class InventarioServiceImplementation implements IInventarioService{
         Inventario inventarioCreated = inventarioRepository.save(inventario);
         return MapperUtils.DtoFromEntity(inventarioCreated, InventarioDTO.class);
     }
+
+    /*@Override
+    public CompletableFuture<Boolean> generateInventario()  {
+        CompletableFuture<Boolean> completableFuture = new CompletableFuture<>();
+
+        Executors.newCachedThreadPool().submit(() -> {
+            Thread.sleep(15500);
+            completableFuture.complete(true);
+            return null;
+        });
+
+        return completableFuture;
+    }*/
+
 }

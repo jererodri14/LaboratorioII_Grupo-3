@@ -44,7 +44,7 @@ public class SwaggerConfiguration {
                         new Tag("Usuarios", "Entidad de Usuarios"),
                         new Tag ("Departamentos" , "Entidad de Departamentos"),
                         new Tag ("Roles","Entidad de Roles"),
-                        new Tag("Transaccciones","Entidad de Transacciones"),
+                        new Tag("Transacciones","Entidad de Transacciones"),
                         new Tag("Activos","Entidad de Activos"),
                         new Tag("ActivosAsignados","Entidad de Activos Asignados"),
                         new Tag("Categorias", "Entidad de Categorias"),
@@ -52,7 +52,8 @@ public class SwaggerConfiguration {
                         new Tag("Marcas", "Entidad de Marcas"),
                         new Tag("Proveedores", "Entidad de Proveedores"),
                         new Tag("Inventarios", "Entidad de Inventarios"),
-                        new Tag("Valuaciones","Entidad de Valuaciones")
+                        new Tag("Valuaciones","Entidad de Valuaciones"),
+                        new Tag("Authentication","Autenticacion de Usuario")
 
                 );
 
