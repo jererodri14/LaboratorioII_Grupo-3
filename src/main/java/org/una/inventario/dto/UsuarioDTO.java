@@ -14,7 +14,7 @@ public class UsuarioDTO {
     private String nombreCompleto;
     private String cedula;
     private boolean estado;
-    private Date fechaRegistro;
+    private Date fechaCreacion;
     private Date fechaModificacion;
     private DepartamentoDTO departamento;
     private boolean esJefe;

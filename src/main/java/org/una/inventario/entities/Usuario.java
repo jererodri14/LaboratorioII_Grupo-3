@@ -39,10 +39,10 @@ public class Usuario implements Serializable {
     private Departamento departamento;
 
 
-    @Column(name = "fecha_registro", updatable = false)
+    @Column(name = "fecha_creacion", updatable = false)
     @Temporal(TemporalType.DATE)
     @Setter(AccessLevel.NONE)
-    private Date fechaRegistro;
+    private Date fechaCreacion;
 
     @Column(name = "fecha_modificacion")
     @Setter(AccessLevel.NONE)
@@ -65,7 +65,7 @@ public class Usuario implements Serializable {
     public void prePersist() {
         estado=true;
         esJefe=false;
-        fechaRegistro = new Date();
+        fechaCreacion = new Date();
         fechaModificacion = new Date();
     }
 

@@ -47,9 +47,9 @@ public class DataLoader implements ApplicationRunner {
 
 
             UsuarioDTO cajeroUsuario = UsuarioDTO.builder()
-                    .cedula("0123456789")
+                    .cedula("1472583690")
                     .nombreCompleto("Usuario Prueba Cajero")
-                    .passwordEncriptado("Una2021")
+                    .passwordEncriptado(password)
                     .departamento(cajasDepartamento.orElseThrow())
                     .rol(usuarioRol.orElseThrow()).build();
             usuarioService.create(cajeroUsuario);
@@ -58,7 +58,7 @@ public class DataLoader implements ApplicationRunner {
                     .cedula("9876543210")
                     .nombreCompleto("Usuario Prueba Contador")
                     .esJefe(true)
-                    .passwordEncriptado("Una2021")
+                    .passwordEncriptado(password)
                     .departamento(contabilidadDepartamento.orElseThrow())
                     .rol(contadorRol.orElseThrow()).build();
             usuarioService.create(contadorUsuario);
