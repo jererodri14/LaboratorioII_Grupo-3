@@ -1,9 +1,9 @@
 package org.una.inventario.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.una.inventario.dto.ParametrosDTO;
-import org.una.inventario.dto.UsuarioDTO;
 import org.una.inventario.entities.Parametros;
 import org.una.inventario.exceptions.NotFoundInformationException;
 import org.una.inventario.repositories.IParametrosRepository;
@@ -11,7 +11,7 @@ import org.una.inventario.utils.MapperUtils;
 
 import java.util.List;
 import java.util.Optional;
-
+@Service
 public class ParametrosServiceImplementation implements IParametrosService {
 
     @Autowired
@@ -37,7 +37,7 @@ public class ParametrosServiceImplementation implements IParametrosService {
     @Override
     @Transactional(readOnly = true)
     public Optional<List<ParametrosDTO>> findByNombreAproximateIgnoreCase(String nombre) {
-        List<Parametros> parametrosList = parametrosRepository.findByNombreContainigIgnoreCase(nombre);
+        List<Parametros> parametrosList = parametrosRepository.findByNombreContainingIgnoreCase(nombre);
         List<ParametrosDTO> parametrosDTOList = MapperUtils.DtoListFromEntityList(parametrosList,ParametrosDTO.class);
         return Optional.ofNullable(parametrosDTOList);
     }

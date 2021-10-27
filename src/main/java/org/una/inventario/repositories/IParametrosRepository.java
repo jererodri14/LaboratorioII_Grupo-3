@@ -9,5 +9,5 @@ import java.util.List;
 @Repository
 public interface IParametrosRepository  extends JpaRepository<Parametros, Long> {
 
-    public List<Parametros> findByNombreContainigIgnoreCase(String nombre);
+    public List<Parametros> findByNombreContainingIgnoreCase(String nombre);
 }
