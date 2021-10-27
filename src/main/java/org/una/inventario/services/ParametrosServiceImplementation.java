@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.una.inventario.dto.ParametrosDTO;
-import org.una.inventario.dto.UsuarioDTO;
 import org.una.inventario.entities.Parametros;
 import org.una.inventario.exceptions.NotFoundInformationException;
 import org.una.inventario.repositories.IParametrosRepository;
