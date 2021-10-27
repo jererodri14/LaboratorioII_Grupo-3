@@ -51,11 +51,11 @@ public class ParametrosController {
         }
     }
 
-    @GetMapping("/nombre/{term}")
+    @GetMapping("/nombre/{nombre}")
     @ApiOperation(value = "Obtiene una lista de parametros segun un aproximado a su nombre", response = ParametrosDTO.class, responseContainer = "List", tags="Parametros")
-    public ResponseEntity<?> findByNombreAproximateIgnoreCase(@PathVariable(value="term") String term){
+    public ResponseEntity<?> findByNombreAproximateIgnoreCase(@PathVariable(value="nombre") String nombre){
         try{
-            Optional<List<ParametrosDTO>> result = parametrosService.findByNombreAproximateIgnoreCase(term);
+            Optional<List<ParametrosDTO>> result = parametrosService.findByNombreAproximateIgnoreCase(nombre);
             if(result.isPresent()){
                 return new ResponseEntity<>(result, HttpStatus.OK);
             }else{
