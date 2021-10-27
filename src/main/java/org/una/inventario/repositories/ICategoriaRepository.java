@@ -8,7 +8,7 @@ import java.util.List;
 @Repository
 public interface ICategoriaRepository extends JpaRepository<Categoria, Long> {
 
-    public List<Categoria> findByNombre(String nombre);
+    public List<Categoria> findByNombreContainingIgnoreCase(String nombre);
 
     public List<Categoria> findByEstado(String estado);
 }

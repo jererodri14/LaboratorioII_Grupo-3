@@ -12,7 +12,9 @@ public interface ICategoriaService {
 
     public Optional<CategoriaDTO> findById(Long id);
 
-    public Optional<List<CategoriaDTO>> findByNombre(String nombre);
+    public Optional<List<CategoriaDTO>> findByNombreAproximateIgnoreCase(String nombre);
+
+    public Optional<List<CategoriaDTO>> findByEstado(String estado);
 
     public Optional<CategoriaDTO> create(CategoriaDTO categoriaDTO);
 
