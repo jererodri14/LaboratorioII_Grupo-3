@@ -10,5 +10,5 @@ public interface ICategoriaRepository extends JpaRepository<Categoria, Long> {
 
     public List<Categoria> findByNombreContainingIgnoreCase(String nombre);
 
-    public List<Categoria> findByEstado(String estado);
+    public List<Categoria> findByEstado(boolean estado);
 }

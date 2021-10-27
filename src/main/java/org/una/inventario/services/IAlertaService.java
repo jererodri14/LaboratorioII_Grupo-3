@@ -13,7 +13,7 @@ public interface IAlertaService {
 
     public Optional<List<AlertaDTO>> findByTipo(String tipo);
 
-    public Optional<List<AlertaDTO>> findByEstado(String estado);
+    public Optional<List<AlertaDTO>> findByEstado(boolean estado);
 
     public Optional<List<AlertaDTO>> findByResponsable(Long id);
 

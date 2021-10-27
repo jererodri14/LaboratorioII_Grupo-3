@@ -69,9 +69,9 @@ public class ProveedorController {
         }
     }
 
-    @GetMapping("/correo/{estado}")
+    @GetMapping("/correo/{correoElectronico}")
     @ApiOperation(value = "Obtiene una lista de proveedores asignados a partir del correo electronico del proveedor", responseContainer = "List", response = ProveedorDTO.class, tags = "Proveedores")
-    public ResponseEntity<?> findByCorreoElectronico(@PathVariable(value = "estado") String correoElectronico) {
+    public ResponseEntity<?> findByCorreoElectronico(@PathVariable(value = "correoElectronico") String correoElectronico) {
         try {
             Optional<ProveedorDTO> result = proveedorService.findByCorreoElectronico(correoElectronico);
             if (result.isPresent()) {
@@ -86,7 +86,7 @@ public class ProveedorController {
 
     @GetMapping("/estado/{estado}")
     @ApiOperation(value = "Obtiene una lista de alertas asignadas a partir del estado del proveedor", responseContainer = "List", response = ProveedorDTO.class, tags = "Proveedores")
-    public ResponseEntity<?> findByEstado(@PathVariable(value = "estado") String estado) {
+    public ResponseEntity<?> findByEstado(@PathVariable(value = "estado") boolean estado) {
         try {
             Optional<List<ProveedorDTO>> result = proveedorService.findByEstado(estado);
             if (result.isPresent()) {

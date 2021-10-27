@@ -14,7 +14,7 @@ public class ProveedorDTO {
     private String notas;
     private String telefono;
     private String correoElectronico;
-    private String estado;
+    private boolean estado;
     private Date fechaCreacion;
     private Date fechaModificacion;
 }

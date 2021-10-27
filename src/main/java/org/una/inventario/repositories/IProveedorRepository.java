@@ -11,5 +11,5 @@ import java.util.List;
 public interface IProveedorRepository  extends JpaRepository<Proveedor, Long> {
     public List<Proveedor> findByNombreContainingIgnoreCase(String nombre);
     public Proveedor findByCorreoElectronico(String correoElectronico);
-    public List<Proveedor> findByEstado(String estado);
+    public List<Proveedor> findByEstado(boolean estado);
 }

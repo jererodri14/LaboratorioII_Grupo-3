@@ -52,7 +52,7 @@ public class ProveedorServiceImplementation implements IProveedorService{
 
     @Override
     @Transactional(readOnly = true)
-    public Optional<List<ProveedorDTO>> findByEstado(String estado) {
+    public Optional<List<ProveedorDTO>> findByEstado(boolean estado) {
         List<ProveedorDTO> proveedorDTOList= MapperUtils.DtoListFromEntityList(proveedorRepository.findByEstado(estado), ProveedorDTO.class);
         return Optional.ofNullable(proveedorDTOList);
     }

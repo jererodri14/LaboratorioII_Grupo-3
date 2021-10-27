@@ -38,4 +38,11 @@ public class Transacciones implements Serializable {
     @ManyToOne
     @JoinColumn(name="rol_id")
     private Rol rolId;
+
+    private static final long serialVersionUID = 1L;
+
+    @PrePersist
+    public void prePersist() {
+        fechaCreacion = new Date();
+    }
 }

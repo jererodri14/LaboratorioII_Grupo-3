@@ -46,7 +46,7 @@ public class AlertaServiceImplementation implements IAlertaService{
     }
 
     @Override
-    public Optional<List<AlertaDTO>> findByEstado(String estado) {
+    public Optional<List<AlertaDTO>> findByEstado(boolean estado) {
         List<AlertaDTO> alertaDTOList= MapperUtils.DtoListFromEntityList(alertaRepository.findByEstado(estado), AlertaDTO.class);
         return Optional.ofNullable(alertaDTOList);
     }

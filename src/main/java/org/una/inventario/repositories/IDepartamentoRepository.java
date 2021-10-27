@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 public interface IDepartamentoRepository extends JpaRepository<Departamento, Long>{
 
-    public List<Departamento> findByEstado(Boolean estado);
+    public List<Departamento> findByEstado(boolean estado);
 
 
 }

@@ -13,7 +13,7 @@ public class ContratoGarantiaDTO {
     private Long id;
     private Double montoAsegurado;
     private Double costo;
-    private String estado;
+    private boolean estado;
     private String fechaVencimiento;
     private Date fechaCreacion;
     private Date fechaModificacion;

@@ -26,4 +26,11 @@ public class Rol implements Serializable {
     @Setter(AccessLevel.NONE)
     @Temporal(TemporalType.DATE)
     private Date fechaCreacion;
+
+    private static final long serialVersionUID = 1L;
+
+    @PrePersist
+    public void prePersist() {
+        fechaCreacion = new Date();
+    }
 }

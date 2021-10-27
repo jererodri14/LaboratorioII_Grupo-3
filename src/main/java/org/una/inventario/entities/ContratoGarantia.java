@@ -24,8 +24,8 @@ public class ContratoGarantia implements Serializable {
     @Column(name = "costo")
     private Double costo;
 
-    @Column(length = 10)
-    private String estado;
+    @Column
+    private boolean estado;
 
     @Column(name = "fecha_vencimiento", length = 100)
     private Double fechaVencimiento;
@@ -48,7 +48,7 @@ public class ContratoGarantia implements Serializable {
 
     @PrePersist
     public void prePersist() {
-        estado="activo";
+        estado=true;
         fechaCreacion = new Date();
         fechaModificacion = new Date();
     }

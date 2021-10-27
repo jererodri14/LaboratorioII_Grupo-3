@@ -16,7 +16,7 @@ public interface IProveedorService {
 
     public Optional<ProveedorDTO> findByCorreoElectronico(String tipo);
 
-    public Optional<List<ProveedorDTO>> findByEstado(String estado);
+    public Optional<List<ProveedorDTO>> findByEstado(boolean estado);
 
     public Optional<ProveedorDTO> create(ProveedorDTO proveedorDTO);
 

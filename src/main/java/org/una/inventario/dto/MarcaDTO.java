@@ -12,6 +12,6 @@ public class MarcaDTO {
 
     private Long id;
     private String nombre;
-    private String estado;
+    private boolean estado;
     private Date fechaCreacion;
 }

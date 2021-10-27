@@ -23,7 +23,7 @@ public class Marca {
     private String nombre;
 
     @Column(length = 10)
-    private String estado;
+    private boolean estado;
 
     @Column
     @Setter(AccessLevel.NONE)
@@ -37,7 +37,7 @@ public class Marca {
 
     @PrePersist
     public void prePersist() {
-        estado = "activo";
+        estado = true;
         fechaCreacion = new Date();
     }
 }

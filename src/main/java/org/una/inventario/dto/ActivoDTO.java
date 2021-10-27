@@ -16,7 +16,7 @@ public class ActivoDTO {
     private ProveedorDTO proveedor;
     private Long continente;
     private String nombre;
-    private String estado;
+    private boolean estado;
     private Date fechaCreacion;
     private Date fechaModificacion;
 }

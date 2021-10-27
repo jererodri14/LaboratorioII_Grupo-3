@@ -86,7 +86,7 @@ public class AlertaControler {
 
     @GetMapping("/estado/{estado}")
     @ApiOperation(value = "Obtiene una lista de alertas asignadas a partir del estado de la alerta", responseContainer = "List", response = AlertaDTO.class, tags = "Alerta")
-    public ResponseEntity<?> findByEstado(@PathVariable(value = "estado") String estado) {
+    public ResponseEntity<?> findByEstado(@PathVariable(value = "estado") boolean estado) {
         try {
             Optional<List<AlertaDTO>> result = alertaService.findByEstado(estado);
             if (result.isPresent()) {

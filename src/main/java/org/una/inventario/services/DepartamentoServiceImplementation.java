@@ -37,7 +37,7 @@ public class DepartamentoServiceImplementation implements IDepartamentoService {
 
     @Override
     @Transactional(readOnly = true)
-    public Optional<List<DepartamentoDTO>> findByEstado(Boolean estado) {
+    public Optional<List<DepartamentoDTO>> findByEstado(boolean estado) {
         List<Departamento> departamentoList = departamentoRepository.findByEstado(estado);
         List<DepartamentoDTO> departamentoDTOList = MapperUtils.DtoListFromEntityList(departamentoList, DepartamentoDTO.class);
         return Optional.ofNullable(departamentoDTOList);

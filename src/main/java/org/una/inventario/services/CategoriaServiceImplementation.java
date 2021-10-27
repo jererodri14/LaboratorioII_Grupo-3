@@ -43,7 +43,7 @@ public class CategoriaServiceImplementation implements ICategoriaService{
     }
 
     @Override
-    public Optional<List<CategoriaDTO>> findByEstado(String estado) {
+    public Optional<List<CategoriaDTO>> findByEstado(boolean estado) {
         List<Categoria> categoriaList = categoriaRepository.findByEstado(estado);
         List<CategoriaDTO> categoriaDTOList = MapperUtils.DtoListFromEntityList(categoriaList, CategoriaDTO.class);
         return Optional.ofNullable(categoriaDTOList);

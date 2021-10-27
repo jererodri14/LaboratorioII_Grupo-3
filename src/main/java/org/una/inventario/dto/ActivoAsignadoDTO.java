@@ -14,6 +14,6 @@ public class ActivoAsignadoDTO {
     private UsuarioDTO usuario;
     private ActivoDTO activo;
     private String justificacion;
-    private String estado;
+    private boolean estado;
     private Date fechaCreacion;
 }

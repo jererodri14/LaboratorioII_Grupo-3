@@ -11,7 +11,7 @@ public interface IDepartamentoService {
 
     public Optional<DepartamentoDTO> findById(Long id);
 
-    public Optional<List<DepartamentoDTO>> findByEstado(Boolean estado);
+    public Optional<List<DepartamentoDTO>> findByEstado(boolean estado);
 
     public Optional<DepartamentoDTO> create(DepartamentoDTO departamentoDTO);
 

@@ -12,7 +12,7 @@ public class CategoriaDTO {
 
     private Long id;
     private String nombre;
-    private String estado;
+    private boolean estado;
     private Date fechaCreacion;
 
 }

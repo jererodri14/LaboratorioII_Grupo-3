@@ -23,8 +23,8 @@ public class Categoria implements Serializable {
     @Column(name = "nombre", length = 100)
     private String nombre;
 
-    @Column(name = "estado", length = 10)
-    private String estado;
+    @Column(name = "estado")
+    private boolean estado;
 
     @Column(name = "fecha_creacion", updatable = false)
     @Temporal(TemporalType.DATE)
@@ -38,6 +38,6 @@ public class Categoria implements Serializable {
 
     @PrePersist
     public void prePersist() {
-        estado="Activo";
+        estado=true;
     }
 }

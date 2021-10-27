@@ -10,7 +10,7 @@ import java.util.Optional;
 public interface IAlertaRepository extends JpaRepository<Alerta, Long> {
     public List<Alerta> findByTipo(String tipo);
 
-    public List<Alerta> findByEstado(String estado);
+    public List<Alerta> findByEstado(boolean estado);
 
     public List<Alerta> findByResponsable(Long responsable);
 

@@ -24,8 +24,8 @@ public class Alerta implements Serializable {
     @Column(name = "descripcion", length = 250)
     private String descripcion;
 
-    @Column(name = "estado", length = 10)
-    private String estado;
+    @Column(name = "estado")
+    private boolean estado;
 
     @Column(name = "responsable", length = 50)
     private Long responsable;
@@ -48,7 +48,7 @@ public class Alerta implements Serializable {
 
     @PrePersist
     public void prePersist() {
-        estado="activo";
+        estado=true;
         fechaCreacion = new Date();
         fechaModificacion = new Date();
     }

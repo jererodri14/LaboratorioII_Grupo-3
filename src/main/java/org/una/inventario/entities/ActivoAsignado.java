@@ -22,7 +22,7 @@ public class ActivoAsignado implements Serializable {
     private String justificacion;
 
     @Column(name = "estado", length = 10)
-    private String estado;
+    private boolean estado;
 
     @Column
     @Setter(AccessLevel.NONE)
@@ -41,7 +41,7 @@ public class ActivoAsignado implements Serializable {
 
     @PrePersist
     public void prePersist() {
-        estado = "activo";
+        estado = true;
         fechaCreacion = new Date();
     }
 

@@ -25,8 +25,8 @@ public class Inventario implements Serializable {
     @Column(length = 100)
     private String descripcion;
 
-    @Column(length = 10)
-    private String estado;
+    @Column
+    private boolean estado;
 
     @Column
     @Setter(AccessLevel.NONE)
@@ -40,7 +40,7 @@ public class Inventario implements Serializable {
 
     @PrePersist
     public void prePersist() {
-        estado = "activo";
+        estado = true;
         fechaCreacion = new Date();
     }
 }

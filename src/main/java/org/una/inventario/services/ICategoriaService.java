@@ -14,7 +14,7 @@ public interface ICategoriaService {
 
     public Optional<List<CategoriaDTO>> findByNombreAproximateIgnoreCase(String nombre);
 
-    public Optional<List<CategoriaDTO>> findByEstado(String estado);
+    public Optional<List<CategoriaDTO>> findByEstado(boolean estado);
 
     public Optional<CategoriaDTO> create(CategoriaDTO categoriaDTO);
 

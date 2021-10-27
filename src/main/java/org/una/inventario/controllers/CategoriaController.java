@@ -68,7 +68,7 @@ public class CategoriaController {
     }
     @GetMapping("/estado/{term}")
     @ApiOperation(value = "Obtiene una lista de categorias segun su estado", response = CategoriaDTO.class, responseContainer = "List", tags="Categorias")
-    public ResponseEntity<?> findByEstado(@PathVariable(value="term") String term){
+    public ResponseEntity<?> findByEstado(@PathVariable(value="term") boolean term){
         try{
             Optional<List<CategoriaDTO>> result = categoriaService.findByEstado(term);
             if(result.isPresent()){
