@@ -38,19 +38,25 @@ public class ActivoServiceImplementation implements IActivoService{
     @Override
     @Transactional(readOnly = true)
     public Optional<List<ActivoDTO>> findByCategoriaId(Long id) {
-        return Optional.empty();
+        List<Activo> activoList = activoRepository.findByCategoriaId(id);
+        List<ActivoDTO> activoDTOList = MapperUtils.DtoListFromEntityList(activoList, ActivoDTO.class);
+        return Optional.ofNullable(activoDTOList);
     }
 
     @Override
     @Transactional(readOnly = true)
     public Optional<List<ActivoDTO>> findByProveedorId(Long id) {
-        return Optional.empty();
+        List<Activo> activoList = activoRepository.findByProveedorId(id);
+        List<ActivoDTO> activoDTOList = MapperUtils.DtoListFromEntityList(activoList, ActivoDTO.class);
+        return Optional.ofNullable(activoDTOList);
     }
 
     @Override
     @Transactional(readOnly = true)
     public Optional<List<ActivoDTO>> findByMarcaId(Long id) {
-        return Optional.empty();
+        List<Activo> activoList = activoRepository.findByMarcaId(id);
+        List<ActivoDTO> activoDTOList = MapperUtils.DtoListFromEntityList(activoList, ActivoDTO.class);
+        return Optional.ofNullable(activoDTOList);
     }
 
     @Override

@@ -20,8 +20,12 @@ public class Activo implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "continente", length = 100)
-    private Long continente;
+    @ManyToOne(cascade={CascadeType.ALL})
+    @JoinColumn(name="continente")
+    private Activo continente;
+
+    @OneToMany(mappedBy= "continente")
+    private List<Activo> activos = new ArrayList<>();
 
     @Column(name = "nombre", length = 100)
     private String nombre;
@@ -39,8 +43,7 @@ public class Activo implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date fechaModificacion;
 
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "activo")
-    @PrimaryKeyJoinColumn
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "activoId")
     private Valuacion valuacion;
 
     @ManyToOne

@@ -83,7 +83,7 @@ public class UsuarioController {
     }
 
     @GetMapping("/cedula/{term}")
-    @ApiOperation(value = "Obtiene una usuario a partir de su cedula aproximada", response = UsuarioDTO.class, tags = "Usuarios")
+    @ApiOperation(value = "Obtiene una usuario a partir de su cedula aproximada", response = UsuarioDTO.class, responseContainer="List",tags = "Usuarios")
     public ResponseEntity<?> findByCedulaAproximate(@PathVariable(value = "term") String term) {
         try {
             Optional<List<UsuarioDTO>> result = usuarioService.findByCedulaAproximate(term);
@@ -98,7 +98,7 @@ public class UsuarioController {
     }
 
     @GetMapping("/nombre/{term}")
-    @ApiOperation(value = "Obtiene una usuario a partir de su nombre ignorando las masyusculas", response = UsuarioDTO.class, tags = "Usuarios")
+    @ApiOperation(value = "Obtiene una lista de usuario a partir de su nombre ignorando las masyusculas", response = UsuarioDTO.class, responseContainer ="List",tags= "Usuarios")
     public ResponseEntity<?> findByNombreCompletoAproximateIgnoreCase(@PathVariable(value = "term") String term) {
         try {
             Optional<List<UsuarioDTO>> result = usuarioService.findByNombreCompletoAproximateIgnoreCase(term);

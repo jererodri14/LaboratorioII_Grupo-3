@@ -36,8 +36,17 @@ public class CategoriaServiceImplementation implements ICategoriaService{
 
     @Override
     @Transactional(readOnly = true)
-    public Optional<List<CategoriaDTO>> findByNombre(String nombre) {
-        return Optional.empty();
+    public Optional<List<CategoriaDTO>> findByNombreAproximateIgnoreCase(String nombre) {
+        List<Categoria> categoriaList = categoriaRepository.findByNombreContainingIgnoreCase(nombre);
+        List<CategoriaDTO> categoriaDTOList = MapperUtils.DtoListFromEntityList(categoriaList, CategoriaDTO.class);
+        return Optional.ofNullable(categoriaDTOList);
+    }
+
+    @Override
+    public Optional<List<CategoriaDTO>> findByEstado(String estado) {
+        List<Categoria> categoriaList = categoriaRepository.findByEstado(estado);
+        List<CategoriaDTO> categoriaDTOList = MapperUtils.DtoListFromEntityList(categoriaList, CategoriaDTO.class);
+        return Optional.ofNullable(categoriaDTOList);
     }
 
     @Override

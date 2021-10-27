@@ -14,13 +14,12 @@ import java.util.Date;
 public class Valuacion implements Serializable {
 
     @Id
-    @Column(name = "activosId")
-    private Long activosId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    @OneToOne
-    @MapsId
+    @ManyToOne
     @JoinColumn(name = "activosId")
-    private Activo activo;
+    private Activo activoId;
 
     @Column
     private double precioValuacion;
@@ -32,7 +31,7 @@ public class Valuacion implements Serializable {
 
     @ManyToOne
     @JoinColumn(name="inventario_id")
-    private Inventario inventario;
+    private Inventario inventarioId;
 
 
     private static final long serialVersionUID = 1L;
