@@ -59,29 +59,6 @@ public class UsuarioController {
         }
     }
 
-    @PutMapping("/login")
-    @ResponseBody
-    @ApiOperation(value = "Inicio de sesión para conseguir un token de acceso", response = UsuarioDTO.class, tags = "Seguridad")
-    public ResponseEntity<?> login(@Valid @RequestBody AuthenticationRequest authenticationRequest, BindingResult bindingResult) {
-        try {
-            if (bindingResult.hasErrors()) { throw new MissingInputsException();  }
-            AuthenticationResponse authenticationResponse = new AuthenticationResponse();
-            String token = usuarioService.login(authenticationRequest);
-            if (!token.isBlank()) {
-                authenticationResponse.setJwt(token);
-                //TODO: Complete this   authenticationResponse.setUsuario(usuario);
-                //TODO: Complete this    authenticationResponse.setPermisos(permisosOtorgados);
-                return new ResponseEntity(authenticationResponse, HttpStatus.OK);
-            } else {
-                throw new InvalidCredentialsException();
-            }
-
-        } catch (Exception e) {
-            return new ResponseEntity<>(e, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-
-    }
-
     @GetMapping("/cedula/{term}")
     @ApiOperation(value = "Obtiene una usuario a partir de su cedula aproximada", response = UsuarioDTO.class, responseContainer="List",tags = "Usuarios")
     public ResponseEntity<?> findByCedulaAproximate(@PathVariable(value = "term") String term) {

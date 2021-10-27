@@ -93,18 +93,6 @@ public class UsuarioServiceImplementation implements IUsuarioService, UserDetail
 
     @Override
     @Transactional(readOnly = true)
-    public String login(AuthenticationRequest authenticationRequest) {
-
-        Authentication authentication = authenticationManager
-                .authenticate(new UsernamePasswordAuthenticationToken(authenticationRequest.getCedula(), authenticationRequest.getPassword()));
-        SecurityContextHolder.getContext().setAuthentication(authentication);
-        return jwtProvider.generateToken(authenticationRequest);
-
-    }
-
-
-    @Override
-    @Transactional(readOnly = true)
     public Optional<UsuarioDTO> findById(Long id) {
         Optional<Usuario> usuario = usuarioRepository.findById(id);
         if (usuario.isEmpty()) throw new NotFoundInformationException();
@@ -137,12 +125,12 @@ public class UsuarioServiceImplementation implements IUsuarioService, UserDetail
         if (usuarioBuscado.isPresent()) {
             Usuario usuario = usuarioBuscado.get();
             List<GrantedAuthority> roles = new ArrayList<>();
-            roles.add(new SimpleGrantedAuthority("ADMIN"));
-            UserDetails userDetails = new User(usuario.getCedula(), usuario.getPasswordEncriptado(), roles);
-            return userDetails;
+            roles.add(new SimpleGrantedAuthority(usuario.getRol().getNombre()));
+            return new User(usuario.getCedula(), usuario.getPasswordEncriptado(), roles);
         } else {
             throw new UsernameNotFoundException("Username not found, check your request");
         }
+
     }
 
     private String encriptarPassword(String password) {

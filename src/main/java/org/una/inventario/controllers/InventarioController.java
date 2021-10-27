@@ -5,11 +5,13 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.web.bind.annotation.*;
 import org.una.inventario.dto.InventarioDTO;
 import org.una.inventario.services.IInventarioService;
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.CompletableFuture;
 
 @RestController
 @RequestMapping("/inventarios")
@@ -82,6 +84,13 @@ public class InventarioController {
             return new ResponseEntity<>(e, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+/*
+    @Async
+    @PostMapping("/")
+    public CompletableFuture<Boolean> generateInventario(){
+        CompletableFuture<Boolean> result = inventarioService.generateInventario();
+        return result;
+    }*/
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable(value = "id") Long id) throws Exception {
