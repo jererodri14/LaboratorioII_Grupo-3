@@ -20,12 +20,12 @@ public class Activo implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    //@ManyToOne(cascade={CascadeType.ALL})
-    //@JoinColumn(name="continente")
-    //private Activo continente;
+    @ManyToOne(cascade={CascadeType.ALL})
+    @JoinColumn(name="continente")
+    private Activo continente;
 
-    //@OneToMany(mappedBy= "continente")
-    //private List<Activo> activos = new ArrayList<>();
+    @OneToMany(mappedBy= "continente")
+    private List<Activo> activos = new ArrayList<>();
 
     @Column(name = "nombre", length = 100)
     private String nombre;

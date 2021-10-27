@@ -70,6 +70,14 @@ public class DataLoader implements ApplicationRunner {
                     .rol(administradorRol.orElseThrow()).build();
             usuarioService.create(administradorUsuario);
 
+            UsuarioDTO auditorUsuario = UsuarioDTO.builder()
+                    .cedula("123456")
+                    .nombreCompleto("Usuario Auditor")
+                    .passwordEncriptado(password)
+                    .departamento(informaticaDepartamento.orElseThrow())
+                    .rol(auditorRol.orElseThrow()).build();
+            usuarioService.create(auditorUsuario);
+
             System.out.println("Se agrega el usuario inicial a la aplicación");
         }else {
             System.out.println("Se encontro el usuario administrador, continuando...");
